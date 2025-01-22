@@ -20,6 +20,7 @@ export const menus = [
         path: "https://mianjingtong.com",
         name: "面精通",
         target: "_blank",
+        hideInMenu: true,   //隐藏在菜单中
     },
     {
         path: "/admin",

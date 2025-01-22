@@ -16,6 +16,8 @@ import GlobalFooter from "@/components/GlobalFooter";
 import './index.css';
 import {menus} from "../../../config/menu";
 import {listQuestionBankByPageUsingPost} from "@/api/questionBankController";
+import {useSelector} from "react-redux";
+import {RootState} from "@/stores";
 
 /**
  * 搜索条
@@ -68,7 +70,10 @@ interface Props {
  */
 export default function BasicLayout({ children} : Props){
 
-        const pathname = usePathname();
+    const pathname = usePathname();
+
+    const loginUser = useSelector((state: RootState) => state.loginUser);
+
 
 
     return (
@@ -89,9 +94,9 @@ export default function BasicLayout({ children} : Props){
                                 pathname,
                             }}
                             avatarProps={{
-                                src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+                                src: loginUser.userAvatar || "/assets.logo.png",
                                 size: 'small',
-                                title: '心荡秋',
+                                title: loginUser.userName || "心荡秋",
                                 render: (props, dom) => {
                                     return (
                                         <Dropdown
@@ -113,9 +118,7 @@ export default function BasicLayout({ children} : Props){
                             actionsRender={(props) => {
                                 if (props.isMobile) return [];
                                 return [
-                                    document.body.clientWidth > 1400 ? (
-                                        <SearchInput key="search" />
-                                    ) : undefined,
+                                    <SearchInput key="search" />,
                                     <a key="github" href="https://github.com/okisno?tab=repositories" target="_blank">
                                         <GithubFilled key="GithubFilled" />
                                     </a>
@@ -131,9 +134,8 @@ export default function BasicLayout({ children} : Props){
                             }}
 
                             //渲染底部栏
-                            footerRender={() => {
-                                return <GlobalFooter />
-                            }}
+                            footerRender={() => <GlobalFooter />}
+
 
                             onMenuHeaderClick={(e) => console.log(e)}
                             // 定义有哪些菜单
@@ -149,7 +151,7 @@ export default function BasicLayout({ children} : Props){
                                 </Link>
                             )}
                         >
-
+                            { JSON.stringify(loginUser) }
                             {children}
 
                         </ProLayout>

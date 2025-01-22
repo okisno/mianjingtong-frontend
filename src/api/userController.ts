@@ -1,50 +1,184 @@
-import axios from "axios";
+// @ts-ignore
+/* eslint-disable */
+import request from "@/libs/request";
 
-// 创建 Axios 示例
-const myAxios = axios.create({
-  baseURL: "http://localhost:8080",
-  timeout: 10000,
-  withCredentials: true,
-});
+/** addUser POST /user/add */
+export async function addUserUsingPost(
+  body: API.UserAddRequest,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponseLong_>("/user/add", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
 
-// 创建请求拦截器
-myAxios.interceptors.request.use(
-    function (config) {
-      // 请求执行前执行
-      return config;
+/** deleteUser POST /user/delete */
+export async function deleteUserUsingPost(
+  body: API.DeleteRequest,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponseBoolean_>("/user/delete", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
     },
-    function (error) {
-      // 处理请求错误
-      return Promise.reject(error);
-    },
-);
+    data: body,
+    ...(options || {}),
+  });
+}
 
-// 创建响应拦截器
-myAxios.interceptors.response.use(
-    // 2xx 响应触发
-    function (response) {
-      // 处理响应数据
-      const { data } = response;
-      // 未登录
-      if (data.code === 40100) {
-        // 不是获取用户信息接口，或者不是登录页面，则跳转到登录页面
-        if (
-            !response.request.responseURL.includes("user/get/login") &&
-            !window.location.pathname.includes("/user/login")
-        ) {
-          window.location.href = `/user/login?redirect=${window.location.href}`;
-        }
-      } else if (data.code !== 0) {
-        // 其他错误
-        throw new Error(data.message ?? "服务器错误");
-      }
-      return data;
+/** getUserById GET /user/get */
+export async function getUserByIdUsingGet(
+  // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
+  params: API.getUserByIdUsingGETParams,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponseUser_>("/user/get", {
+    method: "GET",
+    params: {
+      ...params,
     },
-    // 非 2xx 响应触发
-    function (error) {
-      // 处理响应错误
-      return Promise.reject(error);
-    },
-);
+    ...(options || {}),
+  });
+}
 
-export default myAxios;
+/** getLoginUser GET /user/get/login */
+export async function getLoginUserUsingGet(options?: { [key: string]: any }) {
+  return request<API.BaseResponseLoginUserVO_>("/user/get/login", {
+    method: "GET",
+    ...(options || {}),
+  });
+}
+
+/** getUserVOById GET /user/get/vo */
+export async function getUserVoByIdUsingGet(
+  // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
+  params: API.getUserVOByIdUsingGETParams,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponseUserVO_>("/user/get/vo", {
+    method: "GET",
+    params: {
+      ...params,
+    },
+    ...(options || {}),
+  });
+}
+
+/** listUserByPage POST /user/list/page */
+export async function listUserByPageUsingPost(
+  body: API.UserQueryRequest,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponsePageUser_>("/user/list/page", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** listUserVOByPage POST /user/list/page/vo */
+export async function listUserVoByPageUsingPost(
+  body: API.UserQueryRequest,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponsePageUserVO_>("/user/list/page/vo", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** userLogin POST /user/login */
+export async function userLoginUsingPost(
+  body: API.UserLoginRequest,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponseLoginUserVO_>("/user/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** userLoginByWxOpen GET /user/login/wx_open */
+export async function userLoginByWxOpenUsingGet(
+  // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
+  params: API.userLoginByWxOpenUsingGETParams,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponseLoginUserVO_>("/user/login/wx_open", {
+    method: "GET",
+    params: {
+      ...params,
+    },
+    ...(options || {}),
+  });
+}
+
+/** userLogout POST /user/logout */
+export async function userLogoutUsingPost(options?: { [key: string]: any }) {
+  return request<API.BaseResponseBoolean_>("/user/logout", {
+    method: "POST",
+    ...(options || {}),
+  });
+}
+
+/** userRegister POST /user/register */
+export async function userRegisterUsingPost(
+  body: API.UserRegisterRequest,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponseLong_>("/user/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** updateUser POST /user/update */
+export async function updateUserUsingPost(
+  body: API.UserUpdateRequest,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponseBoolean_>("/user/update", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** updateMyUser POST /user/update/my */
+export async function updateMyUserUsingPost(
+  body: API.UserUpdateMyRequest,
+  options?: { [key: string]: any }
+) {
+  return request<API.BaseResponseBoolean_>("/user/update/my", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
