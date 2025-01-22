@@ -15,9 +15,9 @@ import Link from "next/link";
 import GlobalFooter from "@/components/GlobalFooter";
 import './index.css';
 import {menus} from "../../../config/menu";
-import {listQuestionBankByPageUsingPost} from "@/api/questionBankController";
 import {useSelector} from "react-redux";
 import {RootState} from "@/stores";
+import getAccessibleMenus from "@/access/menuAccess";
 
 /**
  * 搜索条
@@ -74,6 +74,7 @@ export default function BasicLayout({ children} : Props){
 
     const loginUser = useSelector((state: RootState) => state.loginUser);
 
+    const [text, setText] = useState<string>('');
 
 
     return (
@@ -140,7 +141,7 @@ export default function BasicLayout({ children} : Props){
                             onMenuHeaderClick={(e) => console.log(e)}
                             // 定义有哪些菜单
                             menuDataRender={() => {
-                                return menus;
+                                return getAccessibleMenus(loginUser, menus);
                             }}
 
                             // 定义了菜单项如何渲染，例如跳转到哪里，打开方式，新标签还是当前
@@ -151,7 +152,10 @@ export default function BasicLayout({ children} : Props){
                                 </Link>
                             )}
                         >
-                            { JSON.stringify(loginUser) }
+
+                            {/*<MdEditor value={text} onChange={setText} />*/}
+                            {/*<MdViewer value={text} />*/}
+
                             {children}
 
                         </ProLayout>
