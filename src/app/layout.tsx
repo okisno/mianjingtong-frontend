@@ -35,6 +35,8 @@ const InitLayout: React.FC<
         // 获取当前页面路径
         if (res.data){
             // 更新全局用户状态
+            // @ts-ignore
+            dispatch(setLoginUser(res.data));
         } else {
 
 
