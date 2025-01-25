@@ -4,8 +4,11 @@ import "./index.css";
 import Link from "next/link";
 
 interface Props {
+    cardTitle?: React.ReactNode;
     questionList: API.QuestionVO[];
+    questionBankId: number;
 }
+
 
 /**
  * 题目列表组件
@@ -13,7 +16,7 @@ interface Props {
  * @constructor
  */
 const QuestionList = (props: Props) => {
-    const { questionList = [] } = props;
+    const { questionList = [], cardTitle, questionBankId} = props;
 
     const tagList = (tags: string[] = []) => {
         return tags.map((tag) => {
@@ -22,13 +25,13 @@ const QuestionList = (props: Props) => {
     };
 
     return (
-        <Card className="question-list">
+        <Card className="question-list" title={cardTitle}>
             <List
                 dataSource={questionList}
                 renderItem={(item: API.QuestionVO) => (
                     <List.Item extra={tagList(item.tagList)}>
                         <List.Item.Meta
-                            title={<Link href={`/question/${item.id}`}>{item.title}</Link>}
+                            title={<Link href={questionBankId ? `/bank/${questionBankId}/question/${item.id}` : `/question/${item.id}`}>{item.title}</Link>}
                         />
                     </List.Item>
                 )}

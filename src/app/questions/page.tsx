@@ -9,7 +9,7 @@ import "./index.css";
  */
 // @ts-ignore
 export default async function QuestionsPage({searchParams}) {
-    const { q: searchText } = searchParams;
+    const { q: searchText} = searchParams;
 
     let questionList: API.QuestionVO[] | undefined = [];
     let total = 0;

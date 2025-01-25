@@ -60,7 +60,6 @@ const UserAdminPage: React.FC = () => {
             title: '账号',
             dataIndex: 'userAccount',
             valueType: 'text',
-            hideInSearch: true,
         },
         {
             title: '用户名',
@@ -165,7 +164,7 @@ const UserAdminPage: React.FC = () => {
                     return {
                         success: code === 0,
                         data: data?.records || [],
-                        total: Number(data?.total) || 0,
+                        total: Number(data?.    total) || 0,
                     };
                 }}
                 columns={columns}

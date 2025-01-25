@@ -1,7 +1,7 @@
 "use client";
 
 import {ActionType, ProColumns, ProTable} from "@ant-design/pro-components";
-import {useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import Link from "next/link";
 import TagList from "@/components/TagList";
 import {TablePaginationConfig} from "antd";
@@ -55,11 +55,12 @@ export default function QuestionTable(props: Props) {
             fieldProps: {
                 mode: "tags"
             },
-            render: (_, record) => <TagList tagList={record.tagList} />,
+            render: (_, record) => {
+                return <TagList tagList={record.tagList} />;
+            },
         },
     ];
 
-    // @ts-ignore
     // @ts-ignore
     return (
         <div className="question-table">
@@ -103,7 +104,7 @@ export default function QuestionTable(props: Props) {
                         sortField,
                         sortOrder,
                         ...filter,
-                    } as API.UserQueryRequest);
+                    } as API.QuestionQueryRequest);
                     // 更新结果
                     const newTotal = Number(data.total) || 0;
                     const newData = data.records || [];
