@@ -11,6 +11,12 @@ declare namespace API {
     message?: string;
   };
 
+  type BaseResponseListInt_ = {
+    code?: number;
+    data?: number[];
+    message?: string;
+  };
+
   type BaseResponseLoginUserVO_ = {
     code?: number;
     data?: LoginUserVO;
@@ -96,17 +102,12 @@ declare namespace API {
   };
 
   type BaseResponseQuestionBankVO_ = {
-    picture: ReactNode;
-    title: ReactNode;
-    description: ReactNode;
-    questionPage: any;
     code?: number;
     data?: QuestionBankVO;
     message?: string;
   };
 
   type BaseResponseQuestionVO_ = {
-    id: string;
     code?: number;
     data?: QuestionVO;
     message?: string;
@@ -178,6 +179,11 @@ declare namespace API {
   type getUserByIdUsingGETParams = {
     /** id */
     id?: number;
+  };
+
+  type getUserSignInRecordUsingGETParams = {
+    /** year */
+    year?: number;
   };
 
   type getUserVOByIdUsingGETParams = {
@@ -628,6 +634,7 @@ declare namespace API {
     sortField?: string;
     sortOrder?: string;
     unionId?: string;
+    userAccount?: string;
     userName?: string;
     userProfile?: string;
     userRole?: string;
