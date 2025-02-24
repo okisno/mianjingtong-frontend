@@ -7,7 +7,7 @@ export async function addUserUsingPost(
   body: API.UserAddRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseLong_>("/user/add", {
+  return request<API.BaseResponseLong_>("api/user/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,7 +19,7 @@ export async function addUserUsingPost(
 
 /** addUserSignIn POST /user/add/sign_in */
 export async function addUserSignInUsingPost(options?: { [key: string]: any }) {
-  return request<API.BaseResponseBoolean_>("/user/add/sign_in", {
+  return request<API.BaseResponseBoolean_>("api/user/add/sign_in", {
     method: "POST",
     ...(options || {}),
   });
@@ -30,7 +30,7 @@ export async function deleteUserUsingPost(
   body: API.DeleteRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseBoolean_>("/user/delete", {
+  return request<API.BaseResponseBoolean_>("api/user/delete", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export async function getUserByIdUsingGet(
   params: API.getUserByIdUsingGETParams,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseUser_>("/user/get", {
+  return request<API.BaseResponseUser_>("api/user/get", {
     method: "GET",
     params: {
       ...params,
@@ -57,7 +57,7 @@ export async function getUserByIdUsingGet(
 
 /** getLoginUser GET /user/get/login */
 export async function getLoginUserUsingGet(options?: { [key: string]: any }) {
-  return request<API.BaseResponseLoginUserVO_>("/user/get/login", {
+  return request<API.BaseResponseLoginUserVO_>("api/user/get/login", {
     method: "GET",
     ...(options || {}),
   });
@@ -69,7 +69,7 @@ export async function getUserSignInRecordUsingGet(
   params: API.getUserSignInRecordUsingGETParams,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseListInt_>("/user/get/sign_in", {
+  return request<API.BaseResponseListInt_>("api/user/get/sign_in", {
     method: "GET",
     params: {
       ...params,
@@ -84,7 +84,7 @@ export async function getUserVoByIdUsingGet(
   params: API.getUserVOByIdUsingGETParams,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseUserVO_>("/user/get/vo", {
+  return request<API.BaseResponseUserVO_>("api/user/get/vo", {
     method: "GET",
     params: {
       ...params,
@@ -98,7 +98,7 @@ export async function listUserByPageUsingPost(
   body: API.UserQueryRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponsePageUser_>("/user/list/page", {
+  return request<API.BaseResponsePageUser_>("api/user/list/page", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -113,7 +113,7 @@ export async function listUserVoByPageUsingPost(
   body: API.UserQueryRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponsePageUserVO_>("/user/list/page/vo", {
+  return request<API.BaseResponsePageUserVO_>("api/user/list/page/vo", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -128,7 +128,7 @@ export async function userLoginUsingPost(
   body: API.UserLoginRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseLoginUserVO_>("/user/login", {
+  return request<API.BaseResponseLoginUserVO_>("api/user/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -144,7 +144,7 @@ export async function userLoginByWxOpenUsingGet(
   params: API.userLoginByWxOpenUsingGETParams,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseLoginUserVO_>("/user/login/wx_open", {
+  return request<API.BaseResponseLoginUserVO_>("api/user/login/wx_open", {
     method: "GET",
     params: {
       ...params,
@@ -155,7 +155,7 @@ export async function userLoginByWxOpenUsingGet(
 
 /** userLogout POST /user/logout */
 export async function userLogoutUsingPost(options?: { [key: string]: any }) {
-  return request<API.BaseResponseBoolean_>("/user/logout", {
+  return request<API.BaseResponseBoolean_>("api/user/logout", {
     method: "POST",
     ...(options || {}),
   });
@@ -166,7 +166,7 @@ export async function userRegisterUsingPost(
   body: API.UserRegisterRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseLong_>("/user/register", {
+  return request<API.BaseResponseLong_>("api/user/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -181,7 +181,7 @@ export async function updateUserUsingPost(
   body: API.UserUpdateRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseBoolean_>("/user/update", {
+  return request<API.BaseResponseBoolean_>("api/user/update", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -196,7 +196,7 @@ export async function updateMyUserUsingPost(
   body: API.UserUpdateMyRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseBoolean_>("/user/update/my", {
+  return request<API.BaseResponseBoolean_>("api/user/update/my", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -18,7 +18,7 @@ export default async function QuestionsPage({searchParams}) {
         const res = await searchQuestionVoByPageUsingPost({
             searchText,
             pageSize: 12,
-            sortField: "_score",
+            sortField: "",
             sortOrder: "descend",
         });
 

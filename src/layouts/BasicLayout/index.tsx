@@ -121,7 +121,7 @@ export default function BasicLayout({ children} : Props){
                                 if (props.isMobile) return [];
                                 return [
                                     <SearchInput key="search" />,
-                                    <a key="github" href="https://github.com/okisno?tab=repositories" target="_blank">
+                                    <a key="github" href="https://github.com/okisno/mianjingtong-backend" target="_blank">
                                         <GithubFilled key="GithubFilled" />
                                     </a>
                                 ];

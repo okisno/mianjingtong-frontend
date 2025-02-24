@@ -14,7 +14,7 @@ export default function GlobalFooter(){
         <div className="global-footer">
             <div>© {currentYear} 面试刷题平台</div>
             <div>
-                <a href="https://github.com/okisno?tab=repositories" target="_blank">
+                <a href="https://github.com/okisno/mianjingtong-backend" target="_blank">
                     作者：中北大学——张文杰
                 </a>
             </div>

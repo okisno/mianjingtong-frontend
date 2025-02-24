@@ -7,7 +7,7 @@ export async function addQuestionBankQuestionUsingPost(
   body: API.QuestionBankQuestionAddRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseLong_>("/questionBankQuestion/add", {
+  return request<API.BaseResponseLong_>("api/questionBankQuestion/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -22,7 +22,7 @@ export async function batchAddQuestionsToBankUsingPost(
   body: API.QuestionBankQuestionBatchAddRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseBoolean_>("/questionBankQuestion/add/batch", {
+  return request<API.BaseResponseBoolean_>("api/questionBankQuestion/add/batch", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export async function deleteQuestionBankQuestionUsingPost(
   body: API.DeleteRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseBoolean_>("/questionBankQuestion/delete", {
+  return request<API.BaseResponseBoolean_>("api/questionBankQuestion/delete", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export async function getQuestionBankQuestionVoByIdUsingGet(
   options?: { [key: string]: any }
 ) {
   return request<API.BaseResponseQuestionBankQuestionVO_>(
-    "/questionBankQuestion/get/vo",
+    "api/questionBankQuestion/get/vo",
     {
       method: "GET",
       params: {
@@ -71,7 +71,7 @@ export async function listQuestionBankQuestionByPageUsingPost(
   options?: { [key: string]: any }
 ) {
   return request<API.BaseResponsePageQuestionBankQuestion_>(
-    "/questionBankQuestion/list/page",
+    "api/questionBankQuestion/list/page",
     {
       method: "POST",
       headers: {
@@ -89,7 +89,7 @@ export async function listQuestionBankQuestionVoByPageUsingPost(
   options?: { [key: string]: any }
 ) {
   return request<API.BaseResponsePageQuestionBankQuestionVO_>(
-    "/questionBankQuestion/list/page/vo",
+    "api/questionBankQuestion/list/page/vo",
     {
       method: "POST",
       headers: {
@@ -107,7 +107,7 @@ export async function listMyQuestionBankQuestionVoByPageUsingPost(
   options?: { [key: string]: any }
 ) {
   return request<API.BaseResponsePageQuestionBankQuestionVO_>(
-    "/questionBankQuestion/my/list/page/vo",
+    "api/questionBankQuestion/my/list/page/vo",
     {
       method: "POST",
       headers: {
@@ -124,7 +124,7 @@ export async function removeQuestionBankQuestionUsingPost(
   body: API.QuestionBankQuestionRemoveRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseBoolean_>("/questionBankQuestion/remove", {
+  return request<API.BaseResponseBoolean_>("api/questionBankQuestion/remove", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -140,7 +140,7 @@ export async function batchRemoveQuestionsFromBankUsingPost(
   options?: { [key: string]: any }
 ) {
   return request<API.BaseResponseBoolean_>(
-    "/questionBankQuestion/remove/batch",
+    "api/questionBankQuestion/remove/batch",
     {
       method: "POST",
       headers: {
@@ -157,7 +157,7 @@ export async function updateQuestionBankQuestionUsingPost(
   body: API.QuestionBankQuestionUpdateRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseBoolean_>("/questionBankQuestion/update", {
+  return request<API.BaseResponseBoolean_>("api/questionBankQuestion/update", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -7,7 +7,7 @@ export async function addQuestionBankUsingPost(
   body: API.QuestionBankAddRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseLong_>("/questionBank/add", {
+  return request<API.BaseResponseLong_>("api/questionBank/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -22,7 +22,7 @@ export async function deleteQuestionBankUsingPost(
   body: API.DeleteRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseBoolean_>("/questionBank/delete", {
+  return request<API.BaseResponseBoolean_>("api/questionBank/delete", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export async function editQuestionBankUsingPost(
   body: API.QuestionBankEditRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseBoolean_>("/questionBank/edit", {
+  return request<API.BaseResponseBoolean_>("api/questionBank/edit", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -53,7 +53,7 @@ export async function getQuestionBankVoByIdUsingGet(
   params: API.getQuestionBankVOByIdUsingGETParams,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseQuestionBankVO_>("/questionBank/get/vo", {
+  return request<API.BaseResponseQuestionBankVO_>("api/questionBank/get/vo", {
     method: "GET",
     params: {
       ...params,
@@ -67,7 +67,7 @@ export async function listQuestionBankByPageUsingPost(
   body: API.QuestionBankQueryRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponsePageQuestionBank_>("/questionBank/list/page", {
+  return request<API.BaseResponsePageQuestionBank_>("api/questionBank/list/page", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -83,7 +83,7 @@ export async function listQuestionBankVoByPageUsingPost(
   options?: { [key: string]: any }
 ) {
   return request<API.BaseResponsePageQuestionBankVO_>(
-    "/questionBank/list/page/vo",
+    "api/questionBank/list/page/vo",
     {
       method: "POST",
       headers: {
@@ -101,7 +101,7 @@ export async function listMyQuestionBankVoByPageUsingPost(
   options?: { [key: string]: any }
 ) {
   return request<API.BaseResponsePageQuestionBankVO_>(
-    "/questionBank/my/list/page/vo",
+    "api/questionBank/my/list/page/vo",
     {
       method: "POST",
       headers: {
@@ -118,7 +118,7 @@ export async function updateQuestionBankUsingPost(
   body: API.QuestionBankUpdateRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.BaseResponseBoolean_>("/questionBank/update", {
+  return request<API.BaseResponseBoolean_>("api/questionBank/update", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

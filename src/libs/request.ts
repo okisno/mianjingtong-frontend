@@ -1,8 +1,13 @@
 import axios from "axios";
 
+
+const DEV_BASE_URL = "http://localhost:8080";
+const PROD_BASE_URL = "http://8.141.21.113";
+
 // 创建 Axios 示例
 const myAxios = axios.create({
-    baseURL: "http://localhost:8080",
+    // baseURL: DEV_BASE_URL,
+    baseURL: PROD_BASE_URL,
     timeout: 10000,
     withCredentials: true,
 });
