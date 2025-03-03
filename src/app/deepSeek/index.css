@@ -1,0 +1,34 @@
+.ai-chat-container {
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%; /* 确保容器宽度占满父容器 */
+    box-sizing: border-box; /* 确保内边距和边框包含在宽度内 */
+}
+
+.chat-title {
+    text-align: center;
+    margin-bottom: 24px; /* 增加标题下方的间距 */
+}
+
+.chat-list {
+    margin-bottom: 24px; /* 增加聊天列表下方的间距 */
+}
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* 增加输入区域和按钮之间的间距 */
+}
+
+.input-area .ant-btn {
+    align-self: flex-end; /* 将按钮右对齐 */
+}
+
+.ant-list-item-meta-title {
+    font-weight: bold; /* 加粗标题 */
+}
+
+.ant-list-item-meta-description {
+    white-space: pre-wrap; /* 保留换行符 */
+}

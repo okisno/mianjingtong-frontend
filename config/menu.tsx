@@ -24,6 +24,10 @@ export const menus = [
         hideInMenu: true,   //隐藏在菜单中
     },
     {
+        path: "/deepSeek",
+        name: "AI问答",
+    },
+    {
         path: "/admin",
         name: "管理",
         icon: <CrownOutlined />,
